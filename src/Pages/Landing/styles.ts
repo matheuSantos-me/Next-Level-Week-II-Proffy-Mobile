@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 20,
     lineHeight: 30,
-    marginTop: 80,
+    marginTop: 40,
     fontFamily: 'Poppins_400Regular'
   },
   titleBold: {
@@ -41,15 +41,15 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontFamily: 'Archivo_700Bold',
-    fontSize: 20,
+    fontSize: 18,
     color: '#FFFFFF'
   },
   totalConnections: {
     fontFamily: 'Poppins_400Regular',
     color: '#D4C2FF',
-    fontSize: 12,
+    fontSize: 14,
     lineHeight: 20,
-    maxWidth: 140,
+    maxWidth: 160,
     marginTop: 40
   }
 })
