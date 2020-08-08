@@ -2,15 +2,16 @@ import React from 'react'
 import { View, Text } from 'react-native'
 
 import Header from '../../components/Header'
+
 import styles from './styles'
 
-const Favorites = () => {
+const ListTeacher = () => {
 
   return (
-    <View>
-      <Header title="Meus proffys favoritos!" />
+    <View style={styles.container}>
+      <Header title="Proffys disponíveis!" />
     </View>
   )
 }
 
-export default Favorites
+export default ListTeacher

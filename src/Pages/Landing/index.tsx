@@ -1,12 +1,12 @@
 import React from 'react'
 import { View, Text, Image } from 'react-native'
 import { RectButton } from 'react-native-gesture-handler'
+import { Ionicons, Feather } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
 
 import LandingImg from '../../assets/images/landing.png'
-import studyIcon from '../../assets/images/study.png'
-import giveClassesIcon from '../../assets/images/giveClasses.png'
-import heart from '../../assets/images/heart.png'
+import studyIcon from '../../assets/images/icons/study.png'
+import giveClassesIcon from '../../assets/images/icons/giveClasses.png'
 
 import styles from './styles'
 
@@ -22,8 +22,8 @@ const Landing = () => {
       <Text style={styles.title}>Seja bem-vindo. {'\n'}<Text style={styles.titleBold}>O que deseja fazer?</Text></Text>
 
       <View style={styles.containerButtons}>
-        <RectButton style={[styles.button, styles.buttonPrimary]}>
-          <Image source={studyIcon} />
+        <RectButton style={[styles.button, styles.buttonPrimary]} onPress={() => handlePage('Study')}>
+          <Feather name="book-open" color="#FFFFFF" size={40} />
           <Text style={styles.buttonText}>Estudar</Text>
         </RectButton>
 
@@ -35,7 +35,7 @@ const Landing = () => {
 
       <Text style={styles.totalConnections}>
         Total de 200 conexões já realizadas! {' '}
-        <Image source={heart}/>
+        <Ionicons name="ios-heart" size={18} />
       </Text>
     </View>
   )

@@ -20,7 +20,7 @@ const App = () => {
     return (
       <>
       <AppStack />
-      <StatusBar style="light"/>
+      <StatusBar style="light" backgroundColor="#8257E5" />
       </>
     )
   }
