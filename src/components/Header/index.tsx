@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { View, Text } from 'react-native'
 import { BorderlessButton } from 'react-native-gesture-handler'
 import { Ionicons } from '@expo/vector-icons'
@@ -9,10 +9,11 @@ import Logo from '../common/Logo'
 import styles from './styles'
 
 interface props {
-  title: string
+  title: string;
+  headerRight?: ReactNode
 }
 
-const Header: React.FC<props> = ({ title }) => {
+const Header: React.FC<props> = ({ title, headerRight, children }) => {
   const { navigate } = useNavigation()
 
   const handlePage = page => navigate(page)
@@ -27,7 +28,13 @@ const Header: React.FC<props> = ({ title }) => {
         <Logo height={25} width={60} />
       </View>
 
-      <Text style={styles.title}>{title}</Text>
+      <View style={styles.header}>
+        <Text style={styles.title}>{title}</Text>
+
+        {headerRight}
+      </View>
+
+      {children}
     </View>
   )
 }
