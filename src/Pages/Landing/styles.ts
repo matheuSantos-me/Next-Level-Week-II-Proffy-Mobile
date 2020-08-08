@@ -1,6 +1,4 @@
 import { StyleSheet } from 'react-native'
-import { Poppins_400Regular, Poppins_600SemiBold } from '@expo-google-fonts/poppins'
-import { Archivo_700Bold } from '@expo-google-fonts/archivo'
 
 const styles = StyleSheet.create({
   container: {
@@ -43,6 +41,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontFamily: 'Archivo_700Bold',
+    fontSize: 20,
     color: '#FFFFFF'
   },
   totalConnections: {
