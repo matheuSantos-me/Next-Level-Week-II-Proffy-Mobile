@@ -22,7 +22,7 @@ const Landing = () => {
       <Text style={styles.title}>Seja bem-vindo. {'\n'}<Text style={styles.titleBold}>O que deseja fazer?</Text></Text>
 
       <View style={styles.containerButtons}>
-        <RectButton style={[styles.button, styles.buttonPrimary]} onPress={() => handlePage('GiveClasses')}>
+        <RectButton style={[styles.button, styles.buttonPrimary]}>
           <Image source={studyIcon} />
           <Text style={styles.buttonText}>Estudar</Text>
         </RectButton>
