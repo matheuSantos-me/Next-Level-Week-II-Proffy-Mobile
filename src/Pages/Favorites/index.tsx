@@ -1,13 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
+import { useFocusEffect } from '@react-navigation/native'
 
 import Header from '../../components/Header'
-import CardTeacher from '../../components/CardTeacher'
+import CardTeacher, { Teacher } from '../../components/CardTeacher'
 
 import styles from './styles'
 import { ScrollView } from 'react-native-gesture-handler'
 
 const Favorites = () => {
+  const [favorites, setFavorites] = useState([])
+
+  const listTeachersFavoriteds = () => {
+    AsyncStorage.getItem('@proffy:favorites').then(res => {
+      if (res) {
+        const favoritedTeachers = JSON.parse(res)
+        setFavorites(favoritedTeachers)
+      }
+    })
+  }
+
+  useFocusEffect(() => { listTeachersFavoriteds() })
 
   return (
     <View style={styles.container}>
@@ -20,13 +34,15 @@ const Favorites = () => {
           paddingBottom: 24
         }}
       >
-        <CardTeacher />
-        <CardTeacher />
-        <CardTeacher />
-        <CardTeacher />
-        <CardTeacher />
-        <CardTeacher />
-        <CardTeacher />
+        {favorites.map((teacher: Teacher) => {
+          return (
+            <CardTeacher
+              key={teacher.id}
+              teacher={teacher}
+              favorited
+            />
+          )
+        })}
       </ScrollView>
     </View>
   )

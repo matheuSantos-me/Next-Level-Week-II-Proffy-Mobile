@@ -5,6 +5,7 @@ import { RectButton } from 'react-native-gesture-handler'
 import AsyncStorage from '@react-native-community/async-storage'
 
 import styles from './styles'
+import HTTPClient from '../../services/HTTPClient'
 
 export interface Teacher {
   id: number;
@@ -25,6 +26,10 @@ const CardTeacher: React.FC<listTeacherProps> = ({ teacher, favorited }) => {
   const [teacherFavorited, setTeacherFavorited] = useState(favorited)
 
   const handleConnectionWPP = () => {
+    HTTPClient.post('connections', {
+      user_id: teacher.id
+    })
+    
     Linking.openURL(`whatsapp://send?phone*${teacher.whatsapp}`)
   }
 
@@ -75,8 +80,8 @@ const CardTeacher: React.FC<listTeacherProps> = ({ teacher, favorited }) => {
         </Text>
 
         <View style={styles.containerButtons}>
-          <RectButton style={[styles.favoriteButton, { backgroundColor: teacherFavorited ? '#8257E5' : '#E33D3D' }]} onPress={() => handleToggleFavorite()}>
-            {teacherFavorited ? <FontAwesome name="heart-o" color="#FFFFFF"  size={25} /> : <MaterialCommunityIcons name="heart-off" color="#FFFFFF" size={25} />}
+          <RectButton style={[styles.favoriteButton, { backgroundColor: teacherFavorited ? '#E33D3D' : '#8257E5' }]} onPress={() => handleToggleFavorite()}>
+            {teacherFavorited ? <MaterialCommunityIcons name="heart-off" color="#FFFFFF" size={25} /> : <FontAwesome name="heart-o" color="#FFFFFF"  size={25} />}
           </RectButton>
 
           <RectButton style={styles.contactButton} onPress={() => handleConnectionWPP()}>
